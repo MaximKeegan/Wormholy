@@ -45,6 +45,7 @@ class RequestCell: UICollectionViewCell {
             codeLabel.textColor = Colors.HTTPCode.Generic
         }
         urlLabel.text = request?.url
+        urlLabel.numberOfLines = 0;
         durationLabel.text = request?.duration?.formattedMilliseconds() ?? ""
     }
 }
