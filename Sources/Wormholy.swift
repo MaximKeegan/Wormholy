@@ -43,7 +43,7 @@ public class Wormholy: NSObject
                 return
             }
             
-            let index = urlProtocolClasses?.index(where: { (obj) -> Bool in
+            let index = urlProtocolClasses?.firstIndex(where: { (obj) -> Bool in
                 if obj == protoCls{
                     return true
                 }
@@ -97,5 +97,17 @@ public class Wormholy: NSObject
         }
         
         return true
+    }()
+}
+
+extension Wormholy: SelfAware {
+    
+    static func awake() {
+        initializeAction
+    }
+    
+    private static let initializeAction: Void = {
+        swiftyLoad()
+        swiftyInitialize()
     }()
 }
